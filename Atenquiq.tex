@@ -309,18 +309,21 @@ In Figure \ref{Fig11}:
 \begin{itemize}
 \item\textbf{Site \#3} Flow speed pdf at $t_f$ is above $\frac{25\%}{m/s}$ over: $[0.1,\ 1.4]$ m/s in MC, $[1.6,\ 2.4]$ m/s in PF and $[1.4,\ 2.8]$  m/s in VS. MC is bimodal at $0.5$ m/s and $1$ m/s, while PF has a modal value at $2.1$ m/s. Maximum speed pdf is above $\frac{5\%}{m/s}$ over: $[1,\ 7]$ m/s in MC, $[4,\ 8]$ m in PF, $[4,\ 16]$ in VS. PF and VS have tails up to $25-30$ m/s.
 \item\textbf{Site \#4} Flow speed pdf at $t_f$ is above $\frac{25\%}{m/s}$ over: $[0.00,\ 0.45]$ m/s in MC, $[0.6,\ 1.8]$ m/s in PF and $[0.5,\ 3.0]$  m/s in VS. PF has a modal value at $1$ m/s. Maximum speed pdf in MC is concentrated below $1$ m/s. In PF it is above $\frac{25\%}{m/s}$ over $[1,\ 5]$ m/s. In VS it is bimodal and above $\frac{25\%}{m/s}$ over: $[2,\ 6]$ m/s and $[12, 20]$ m/s.
-    
+
 \item\textbf{Site \#5} Flow speed pdf at $t_f$ is above $\frac{25\%}{m/s}$ over: $[0.0,\ 0.4]$ m/s in MC, $[0.0,\ 1.4]$ m/s in PF and over $[0.0,\ 0.2]$ and $[0.4,\ 2.2]$  m/s in VS. Maximum speed pdf is above $\frac{5\%}{m/s}$ over: $[0.0,\ 0.2]$ and $[0.4,\ 1.2]$ m/s in MC, to $[0,\ 4]$ m in PF, $[0,\ 9]$ in VS. PF and VS have tails up to $8$ and $13$ m/s respectively.
 \end{itemize}
 
 \subsection{Alternative performance scores of the models}
 In the Figures \ref{Fig10} and \ref{Fig11} we display the empirical information concerning these quantities. In particular:
 \begin{enumerate}
-\item the deposit thickness calculated from the envelope of the closest field sections, \\ $[3.7, 5.5]$ m in \textbf{Site \#3}, $[1.7, 3]$ m in \textbf{Site \#3}, $[1.4, 3.8]$ m in \textbf{Site \#5} \citep{Saucedo2008}.
-\item the flow height in Atenquique village, from historical documents and witnesses, \\$[8, 9]$ m in \textbf{Site \#4} or maybe \textbf{Site \#4} \citep{PonceSegura1983}.
-\item the flow speed after the inundation of the village, from a comparison to analog flows, \\$[4, 6]\ m/s$ in \textbf{Site \#5} or maybe \textbf{Site \#5} \citep{Saucedo2008, Pierson1985}.
+\item the deposit thickness calculated from the envelope of the closest field sections, \\ $[3.7, 5.5]$ m in \textbf{Site \#3}, $[1.7, 3]$ m in \textbf{Site \#4}, $[1.4, 3.8]$ m in \textbf{Site \#5} \citep{Saucedo2008}.
+\item the flow height in Atenquique village, from historical documents and witnesses, \\$[8, 9]$ m in \textbf{Site \#3} and/or \textbf{Site \#4} \citep{PonceSegura1983}.
+\item the flow speed after the inundation of the village, from a comparison to analog flows, \\$[4, 6]\ m/s$ in \textbf{Site \#4} and/or \textbf{Site \#5} \citep{Saucedo2008, Pierson1985}.
 \end{enumerate}
-We take these intervals as examples of uncertain data, and further research could modify some of them.
+We consider these intervals as examples of uncertain data to test our methodology. Further research could modify some of them.
+
+The estimation of data likelihood is an essential step towards the definition of partial solutions of the inverse problem. These values can also provide relevant information in the model selection problem. The likelihood of data $D_i$ is defined as $P^j(D_i)$, $\forall i\in I$, $\forall M_j\in \mathcal M$. We remark that this is not a pdf value, but the probability of a measurable set.
+
 
 
 \begin{figure}[H]
@@ -335,25 +338,46 @@ Figure \ref{Fig11} displays the partial solutions subsets $\Omega_i^j$ over the 
 
 \begin{figure}[H]
 \centering
+\includegraphics[width=0.8\textwidth]{Fig11_0.png}
+\caption{Example \#1 of partial solutions inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5, brick red in Site \#4, cyan in Site \#3 \citep{Saucedo2008}.}
+\label{Fig11_0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
 \includegraphics[width=0.8\textwidth]{Fig11.png}
-\caption{Partial solutions inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness \citep{Saucedo2008}, blue is wave height \citep{PonceSegura1983}, red is flow speed \citep{Pierson1985}.}
+\caption{Example \#2 of partial solutions inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#4 \citep{PonceSegura1983}, red is flow speed in Site \#5 \citep{Pierson1985}.}
 \label{Fig11}
 \end{figure}
 
 \begin{figure}[H]
 \centering
+\includegraphics[width=0.8\textwidth]{Fig11_PF.png}
+\caption{Example \#3 of partial solutions inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#3 \citep{PonceSegura1983}, red is flow speed in Site \#4 \citep{Pierson1985}.}
+\label{Fig11a}
+\end{figure}
+
+\begin{figure}[H]
+\centering
 \includegraphics[width=0.8\textwidth]{FigA2.png}
-\caption{Partial solutions inputs in PF experimental design supported over the four different hyperplanes described in Table 1. All plots are projected along the $V$ coordinate. The color expresses the considered data: yellow is deposit thickness \citep{Saucedo2008}, red is flow speed \citep{Pierson1985}.}
+\caption{Partial solutions inputs in PF experimental design supported over one of the four different hyperplanes described in Table 1, data refer to Figure \ref{Fig11a}. All plots are projected along the $V$ coordinate. The color expresses the considered data: yellow is deposit thickness \citep{Saucedo2008}, red is flow speed \citep{Pierson1985}.}
 \label{FigA2}
 \end{figure}
 
-\subsection{Example of conditional results}
+\subsection{Examples of conditional results}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{Fig12.png}
-\caption{Flow properties of VS models, over the input space $\Theta^{\textrm{VS}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\Theta^{\textrm{VS}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#3,\#4,\#5 are displayed.}
+\caption{Flow properties of VS model, over the input space $\tilde\Theta^{\textrm{VS}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\Theta^{\textrm{VS}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#4 and \#5 are displayed.}
 \label{Fig12}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Fig12_PF.png}
+\caption{Flow properties of PF model, over the input space $\tilde\Theta^{\textrm{PF}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\Theta^{\textrm{PF}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#4 and \#5 are displayed.}
+\label{Fig12a}
 \end{figure}
 
 
