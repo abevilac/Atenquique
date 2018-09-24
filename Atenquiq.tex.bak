@@ -34,7 +34,7 @@
 \newtheorem{summary}[theorem]{Summary}
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
-\title{\textbf{Probabilistic forecasting of plausible debris flows from Nevado de Colima (MX) using data from the Atenquique debris flow, 1955}}
+\title{\textbf{Probabilistic forecasts based on plausible flows from Nevado de Colima (MX) using  data from Atenquique debris flow, 1955}}
 \author[1,2]{Andrea Bevilacqua}
 \author[3,2]{Abani K. Patra}
 \author[1]{Marcus I. Bursik}
