@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Probabilistic description}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Functional structures}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Geophysical case study}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Nevado de Colima volcano and Barranca de Atenquique}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{The Atenquique volcaniclastic debris flow, 1955}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Multiple sources and their locations}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Probabilistic modeling in a prediction-oriented framework}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Preliminary definition of the input space}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.1}{General input space}{subsection.3.1}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Specialized input space}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Probability measures and specialized experimental design}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Observable outputs and contributing variables}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Percentile maps of maximum flow depth and kinetic energy}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Local properties of the flow}{section.4}% 15
+\BOOKMARK [1][-]{section.5}{The likelihood of a model given uncertain data}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Alternative performance scores of the models}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Partial solutions in the input space}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{Examples of conditional results}{section.6}% 19
+\BOOKMARK [1][-]{section.7}{Conclusions}{}% 20
+\BOOKMARK [1][-]{appendix.A}{Overview of the depth-averaged models}{}% 21
+\BOOKMARK [2][-]{subsection.A.1}{Mohr-Coulomb}{appendix.A}% 22
+\BOOKMARK [2][-]{subsection.A.2}{Pouliquen-Forterre}{appendix.A}% 23
+\BOOKMARK [2][-]{subsection.A.3}{Voellmy-Salm}{appendix.A}% 24
+\BOOKMARK [1][-]{appendix.B}{Contributing variables}{}% 25
