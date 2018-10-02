@@ -69,8 +69,8 @@ Christen, M., Kowalski, J., and Bartelt, P. (2010).
   three-dimensional terrain}.
 \newblock {\em Cold Regions Science and Technology}, 63:1--14.
 
-\bibitem[Cort'es, 2005]{Cortes2005}
-Cort'es, A. (2005).
+\bibitem[Cort\'es, 2005]{Cortes2005}
+Cort\'es, A. (2005).
 \newblock {Carta geol\'ogica del complejo volc\'anico de Colima. M\'exico}.
 \newblock {\em Cartas Geol\'ogicas y Mineras}, 10(0185-4798).
 
@@ -102,6 +102,12 @@ Dalbey, K.~R. (2009).
 Drucker, D.~C. and Prager, W. (1952).
 \newblock Soil mechanics and plastic analysis for limit design.
 \newblock {\em Quarterly of Applied Mathematics}, 10(2):157Ð165.
+
+\bibitem[Farrell et~al., 2015]{Farrell2015}
+Farrell, K., Tinsley, J., and Faghihi, D. (2015).
+\newblock {A Bayesian framework for adaptive selection, calibration, and
+  validation of coarse-grained models of atomistic systems}.
+\newblock {\em Journal of Computational Physics}, 295.
 
 \bibitem[Fischer et~al., 2012]{Fischer2012}
 Fischer, J., Kowalski, J., and Pudasaini, S.~P. (2012).
