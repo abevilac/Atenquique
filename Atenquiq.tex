@@ -1,47 +1,14 @@
-\documentclass{article}
-\usepackage{amsmath,amssymb,amstext,mathtools,array,url,bm,graphicx,color,epsfig}
-\usepackage{fullpage,setspace}
-\usepackage{authblk}
-\usepackage{filecontents}
-\usepackage{natbib}
-\usepackage{lineno}
-%\usepackage[colorlinks]{hyperref}
-\usepackage{hyperref}
-\usepackage{subcaption}
-\usepackage{float}
-\usepackage[flushleft]{threeparttable}
+\documentclass[nhess, manuscript]{copernicus}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{case}[theorem]{Case}
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conclusion}[theorem]{Conclusion}
-\newtheorem{condition}[theorem]{Condition}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{criterion}[theorem]{Criterion}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{problem}[theorem]{Problem}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{solution}[theorem]{Solution}
-\newtheorem{summary}[theorem]{Summary}
-\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-
+\begin{document}
 \title{\textbf{Probabilistic forecasting of plausible debris flows from Nevado de Colima (M\'exico) using data from the Atenquique debris flow, 1955}}
-\author[1,2]{Andrea Bevilacqua}
-\author[3,2]{Abani K. Patra}
-\author[1]{Marcus I. Bursik}
-\author[4]{E. Bruce Pitman}
-\author[5]{Jos\'e Luis Mac\'ias}
-\author[6]{Ricardo Saucedo}
-\author[1]{David Hyman}
+\Author[1,2]{Andrea} {Bevilacqua}
+\Author[3,2]{Abani K.} {Patra}
+\Author[1]{Marcus I.} {Bursik}
+\Author[4]{E. Bruce} {Pitman}
+\Author[5]{Jos\'e Luis} {Mac\'ias}
+\Author[6]{Ricardo} {Saucedo}
+\Author[1]{David} {Hyman}
 
 
 \affil[1]{\small\textit{Department of Earth Sciences, SUNY at Buffalo, NY, 14260} }
@@ -51,18 +18,21 @@
 \affil[5]{\small\textit{Departamento de Vulcanolog\'ia, Instituto de Geof\'isica, UNAM, DF, 04510}}
 \affil[6]{\small\textit{Instituto de Geolog\'ia, Facultad de Ingenier\'ia, UASLP, SLP, 78240}}
 
-\date{\texttt{\{abevilac,abani,mib,pitman,davidhym\}@buffalo.edu},\\ \texttt{rgiron@uaslp.mx}, \texttt{macias@geofisica.unam.mx}}
+\runningtitle{Atenquique Flows Probabilistic Forecasting}
 
-\begin{document}
+\runningauthor{Bevilacqua et al.}
+
+\correspondence{Andrea Bevilacqua (bev87@hotmail.it)}
+
+\firstpage{1}
 \maketitle
+
 \abstract
 We detail a new prediction-oriented procedure aimed at volcanic hazard assessment based on geophysical mass flow models constrained with heterogeneous and poorly defined data. Our method relies on an itemized application of the empirical falsification principle over an arbitrarily wide envelope of possible input conditions. We thus provide a first step towards a objective and partially automated experimental design construction. In particular, instead of fully calibrating model inputs on past observations, we create and explore more general requirements of consistency, and then we separately use each piece of empirical data to remove those input values that are not compatible with it, hence defining partial solutions to the inverse problem. This has several advantages compared to a traditionally posed inverse problem: (i) the potentially non-empty  inverse images of partial solutions of multiple possible forward models characterize the solutions to the inverse problem; (ii) the partial solutions can provide hazard estimates under weaker constraints, potentially including extreme cases that are important for hazard analysis; (iii) if multiple models are applicable, specific performance scores against each piece of empirical information can be calculated. We apply our procedure to the case study of the Atenquique volcaniclastic debris flow, which occurred on the flanks of Nevado de Colima volcano (M\'exico), 1955. We adopt and compare three depth averaged models currently implemented in the TITAN2D solver, available from vhub.org. The associated inverse problem is not well-posed if approached in a traditional way. We show that our procedure can extract valuable information for hazard assessment, allowing the exploration of the impact of synthetic flows similar to those that occurred in the past, but different in plausible ways. The implementation of multiple models is thus a crucial aspect of our approach, as they can allow the covering of other plausible flows. We also observe that model selection is inherently linked to the inversion problem.
 
-\newpage
-\tableofcontents
 
 \newpage
-\section{Introduction}
+\introduction
 Hazard assessment of geophysical mass flows, such as landslides or pyroclastic flows, usually relies on the reconstruction of past flows that occurred in the region of interest. The available pieces of data $D_i\in\mathcal D$, are commonly related to the properties of the deposit left by the flows, and to historical documentation. In general, this information can be affected by relevant sources of uncertainty (e.g., erosion and re-mobilization, superposition of subsequent events, unknown duration and source). Physical models provide us with a deterministic system to relate inputs and outputs of the dynamical system of the mass flow \citep{Gilbert91, Patra2018a} and are traditionally used to explore ``what-if" scenarios and more recently in ways to supplement observed data with physically consistent synthetic data \citep{Bayarri2015} for probabilistic analysis.
 
 In a probabilistic framework, for each model $M\in\mathcal M$ we define $\left(M, P_{M}\right)$, where $P_M$ is a probability measure over the parameter space of $M$. While the support of $P_M$ can be restricted to a single value by solving an inverse problem for the optimal reconstruction of a particular flow, the inverse problem is not always well-posed \citep{Tarantola1982,  Tarantola1987}. That is, no input data, or multiple input data, are able to produce outputs consistent with the observed information. Sometimes the strict replication of a past flow may lead to overconstraining the model, especially if we are interested in the general predictive capabilities of a model over a whole range of possible future events. In this study, we  generalize a poorly constrained inverse problem, decomposing it into a hierarchy of simpler problems. Our purpose is to provide a new prediction-oriented formulation for use in hazard assessment problems.
@@ -93,15 +63,17 @@ $$\Omega_G:=\bigsqcup_j \Omega^j_0.$$
 This puts all the models in a natural meta-modeling framework. Then, we characterize the codomain $D_G\subset \mathbb R^d$ of plausible outputs, that is the target of our simulations - it includes all the outputs consistent with the observed data, plus additional outputs which differ in arbitrary, but plausible ways. For the sake of simplicity, we use the same notation for each piece of data $D_i$ and the set of outputs consistent with it. Then $\forall j$, the specialized input space is defined by:
 $$\Omega^j=f_{M_j}^{-1}\left(D_G\right).$$
 In a similar way, $\forall i$, $\Omega^j_i=f_{M_j}^{-1}\left(D_i\right)$, and for this reason those sets are called partial solutions to the inverse problem.
+
+We remark that the implementation of multiple models is a crucial aspect in our approach. Typically, the available models are not able to entirely cover $D_G$, and:
+$$D_G\setminus\bigcup_j f_{M_j}\left(\Omega^j_0\right)\neq \emptyset.$$
+The investigation of $D_G$ and the quality of the solutions will clearly improve as we add more models based on new knowledge of the underlying processes, especially when there is uncertainty as to which model is best in a particular situation. We show that the solution of the partial inverse problems and model selection are strongly linked.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{Scheme_ok3.png}
 \caption{Diagram of input spaces, model functions, and output space (blue), with feasible inputs domain (red), plausible output codomain and specialized inputs (green), and observed data and partial solutions subsets (orange). The question mark emphasizes that the covering of other plausible outputs could be enabled, adding more models if necessary.}
 \label{scheme}
 \end{figure}
-We remark that the implementation of multiple models is a crucial aspect in our approach. Typically, the available models are not able to entirely cover $D_G$, and:
-$$D_G\setminus\bigcup_j f_{M_j}\left(\Omega^j_0\right)\neq \emptyset.$$
-Considering multiple models improves the exploration of $D_G$. The quality of the solutions will clearly improve as we add more models based on new knowledge of the underlying processes, especially when there is uncertainty as to which model is best in a particular situation. We show that the solution of the partial inverse problems and model selection are strongly linked.
 
 \subsection{Geophysical case study}
 We apply our procedure to the case study of the Atenquique volcaniclastic debris flow, which occurred on the flanks of Nevado de Colima volcano (M\'exico) in 1955. We adopt and compare the three depth averaged models \emph{Mohr-Coulomb} (MC) \citep{SavageHutter1989}, \emph{Pouliquen-Forterre} (PF) \citep{Pouliquen1999, ForterrePouliquen2002, PouliquenForterre2002} and \emph{Voellmy-Salm} (VS) \citep{Voellmy1955, Salm1990}, based on the Saint-Venant equations. Input spaces are explored by Monte Carlo simulation based on Latin Hypercube sampling \citep{McKay1979,Owen1992b,Stein1987,Ranjan2014,Mingyao2016}. The three models are incorporated in our large scale mass flow simulation framework  TITAN2D \citep{Patra2005,Patra2006,Yu2009,Aghakhani2016,Patra2018}. So far, TITAN2D has been successfully applied to the simulation of different geophysical mass flows with specific characteristics \citep{Sheridan2005, Rupp2006, Norini2008, Charbonnier2009, Procter2010, Sheridan2010, Sulpizio2010, Capra2011}. Several studies involving TITAN2D were also directed towards statistical study of geophysical flows, focusing on uncertainty quantification \citep{Dalbey2008, Dalbey2009, Stefanescu2012b, Stefanescu2012a}, or on the more efficient production of hazard maps \citep{Bayarri2009, Spiller2014, Bayarri2015, Ogburn2016}.
@@ -113,7 +85,7 @@ The rest of the study is organized as follows. In section \ref{s1}, we present o
 \section{Nevado de Colima volcano and Barranca de Atenquique}\label{s1}
 The Colima Volcanic Complex is located in the western portion of the Trans-Mexican Volcanic Belt (small box in Fig. \ref{Fig1}). It consists of a N--S volcanic chain formed by C\'antaro, Nevado de Colima, and Colima volcanoes, within the Colima Graben \citep{Luhr1990}. It began forming 1.7 Ma ago with the growth of C\'antaro Volcano (2800 m.a.s.l), and continued with the formation of Nevado de Colima volcano 0.53 Ma ago \citep{Allan1986, Robin1987}. Activity was intermittent during the Pleistocene and Holocene and continues today at Colima volcano (3860 m.a.s.l.), south of  Nevado  \citep{Saucedo2010, Zobin2015, Macorps2018}.
 
-Nevado de Colima (4320 m.a.s.l.) occupies the central part of the volcanic complex, being the most voluminous of the three volcanoes (300–-400 km$^3$). It is characterized by three or four horseshoe-shaped craters \citep{Cortes2010}. The youngest crater is 4 km wide and opens to the east with 100 m deep, vertical walls. This structure contains the summit Picacho dome (4300 m). The eastern flank of Nevado exposes a thick sequence of debris flow, fluvial, pyroclastic flow and debris avalanche deposits known as the Atenquique Formation \citep{Mooser1961, Cortes2005, Saucedo2008}, covered by younger deposits. The crater morphology directs a large part of the drainage from the volcano into the Atenquique ravine, located on the ENE flank of the volcano and $\sim$25 km long. Figure \ref{Fig1} shows the ravine and its surrounding topography.
+Nevado de Colima (4320 m.a.s.l.) occupies the central part of the volcanic complex, being the most voluminous of the three volcanoes (300--400 km$^3$). It is characterized by three or four horseshoe-shaped craters \citep{Cortes2010}. The youngest crater is 4 km wide and opens to the east with 100 m deep, vertical walls. This structure contains the summit Picacho dome (4300 m). The eastern flank of Nevado exposes a thick sequence of debris flow, fluvial, pyroclastic flow and debris avalanche deposits known as the Atenquique Formation \citep{Mooser1961, Cortes2005, Saucedo2008}, covered by younger deposits. The crater morphology directs a large part of the drainage from the volcano into the Atenquique ravine, located on the ENE flank of the volcano and $\sim$25 km long. Figure \ref{Fig1} shows the ravine and its surrounding topography.
 
 Plot (\ref{Fig1}b) includes elevation isolines from the SRTM DEM of 30-m cell size for UTM Zone 13N \citep{NASA2014}. The drainage begins at an elevation of 4000 m on the eastern flank of Nevado, is occupied by the perennial Atenquique river, and ends at its junction with the perennial Tuxpan River at 1040 m. Between, 4000 and 2000 m in altitude, the ravine has an average slope of 34$^\circ$. At an elevation of 1800 m, the Atenquique ravine is cut off by a 250 m cliff in the vicinity of the junction with the Dos Volcanes dry ravine. Beyond this cliff, the slope of the ravine suddenly decreases from 34$^\circ$ to 18$^\circ$, keeping this gradient to an elevation of 1600 m at 11.5 km from the summit. Between this site and the catchments of the Los Pl\'atanos and Arroyo Seco dry ravines, located at $\sim$21.5 km at an elevation of 1120 m, the ravine gradient varies from 10$^\circ$ to 6$^\circ$. The town of Atenquique is located at an altitude of 1050 m, and 18.5 km (25 km along the ravine path) from the head of the ravine. There, the ravine channel has a gradient of 5$^\circ$, which is maintained down to the confluence with the Tuxpan River. Atenquique ravine has an average width of 30 m, although in the vicinity of Atenquique village it is up to 200 m wide.
 
@@ -190,18 +162,18 @@ In (i), we selected $1200$ m elevation because it is located about 1 km upstream
 \caption*{Table 1: Input space exploration and testing of (a) MC, (b) VS, (c) PF models, $V=4.18\times 10^6$ $m^3$. The 3D input space of PF is described by four 2D subspaces. Values reported are the minimum elevation $\zeta$ reached at $t=1200$ s. A gray background marks those inputs that generate unphysical flow run-up and over-spill the ravine walls, light gray if $>0.1$ m, dark gray if $>1$ m. Red lines mark the subdomain $\Omega^j$ of flows with $\zeta\le1200$ m and without significant over-spill issues.}
 \end{figure}
 
+Table 1 reports the minimum elevation $\zeta$ inundated at $1200$ s, and a summary of over-spill issues. These values are generated with reference to a flow volume of $V=4.18\times 10^6$ $m^3$, roughly equivalent to the mean value of our range, and so the input spaces have two dimensions in MC and VS, and three in PF. Following the empirical falsification principle, we snip the input range by  deleting those regions that do not satisfy our requirements. The  subspaces obtained by this procedure do not have rectangular shape, but look like parallelograms - this is because the effects of the input variables on the output are not independent. Maximum flow height maps of all these tests are included in Supporting Information SI1-SI3.
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.87\textwidth]{Fig2.png}
+\includegraphics[width=0.76\textwidth]{Fig2.png}
 \caption{Overview of the specialized experimental design in (a-b) MC, (c-d) PF, (e-f) VS models. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. In (c-d), the color expresses the distance along the third dimension.}
 \label{Fig2}
 \end{figure}
 
-Table 1 reports the minimum elevation $\zeta$ inundated at $1200$ s, and a summary of over-spill issues. These values are generated with reference to a flow volume of $V=4.18\times 10^6$ $m^3$, roughly equivalent to the mean value of our range, and so the input spaces have two dimensions in MC and VS, and three in PF. Following the empirical falsification principle, we snip the input range by  deleting those regions that do not satisfy our requirements. The  subspaces obtained by this procedure do not have rectangular shape, but look like parallelograms - this is because the effects of the input variables on the output are not independent. Maximum flow height maps of all these tests are included in Supporting Information SI1-SI3.
-
 \begin{itemize}
 \item In MC we observe over-spill issues if $\phi_{bed} < 6^\circ$, and a  runout that is too short if $\phi_{bed} > 6.5^\circ$. We also note an increase in the runout distance as $\phi_{int}$ increases. In particular, $\phi_{int} \ge 35^\circ$ is required to inundate the village.
-\item In VS the over-spill is observed in the region $\{\arctan(\mu)<1.5^\circ\} \times \{\log_{10}(\xi)>3.5\}$. In contrast, the region $\{\arctan(\mu)>3^\circ\} \times \{\log_{10}(\xi)<3\}$ produces runouts that are too short.
+\item In VS the over-spill is observed in the region $\{\arctan(\mu)<1.5^\circ\} \times \{\log_{10}(\xi)>3.5\}$. \\In contrast, the region $\{\arctan(\mu)>3^\circ\} \times \{\log_{10}(\xi)<3\}$ produces runouts that are too short.
 \item Model PF must be treated with greater care because of its higher dimensionality. We divide its behavior along four different hyperplanes, corresponding to different values of $\phi_2$ and $\beta=f(\phi_2)$. Over-spill was observed only in the hyperslice with $\phi_2=7^\circ$, and $L<0.4$ m. In general, $\phi_1<3^\circ$ is required to have a long-enough runout.
 \end{itemize}
 
@@ -227,7 +199,7 @@ Figure \ref{scheme2} summarizes all the steps of our approach, following the not
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth]{diagram.pdf}
+\includegraphics[width=1\textwidth]{diagram.pdf}
 \caption{Diagram of the steps of our meta-modeling approach. Our statistical summary includes the local analysis if contributing variables.}
 \label{scheme2}
 \end{figure}
@@ -262,12 +234,7 @@ In our depth-averaged approach the \emph{kinetic energy} \footnote{while the use
 \end{equation}
 where $h\bar{u}$ and $h\bar{v}$ are, respectively, the components of momentum in the $x$ and $y$ directions.
 
-This is equivalent to $\frac{1}{2} h ||(\bar{u},\bar{v})||^2$, that is half the flow height times the speed square. Thus $\kappa$ is formally the kinetic energy density per unit of surface area,  for a mass with unit density. The kinetic energy, $K$, in a traditional sense may be calculated over an arbitrary region $R$ as:
-$$\textrm{Kin}(R)=\rho\int_R \kappa(x,y) dx dy=\rho\int_R \frac{1}{2} h(x,y)\left[\bar{u}(x,y)^2+\bar{v}(x,y)^2\right] dx dy,$$
-where $\rho$ is the density of the flow, typically in $[1000,\ 2000]\ kg/m^3$, depending on the flow water content.
-
-Figure \ref{Fig3} reports the maximum flow depth, $H$, and Figure \ref{Fig4} the maximum kinetic energy, $K$. MC shows the lowest values of both flow depth and energy, while VS the highest, especially in the distal part of the domain. In MC, the flow in the tributaries is not capable of reaching the village, while in the 95$^{th}$ percentile maps of PF and VS, it is. In VS, the flow in Arroyo Pl\'atanos joins the main ravine even in the 5$^{th}$ percentile map. In general, local maxima of flow depth are located in the ravine, while the kinetic energy shows a more regular decrease. The energy values at the head of the flow are in $[1,\ 10]\  m^3/s^2$, meaning a relatively slow flow compared to the dynamics observed upstream. Significant over-spill issues are absent, but in the 95$^{th}$ percentile maps all the models report some flow in the Dos Volcanes ravine, of about $[1,\ 5]\ m$ maximum height, and slightly less in PF.
-
+This is equivalent to $\frac{1}{2} h ||(\bar{u},\bar{v})||^2$, that is half the flow height times the speed square. Thus $\kappa$ is formally the kinetic energy density per unit of surface area,  for a mass with unit density. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{Fig3.png}
@@ -281,6 +248,11 @@ Figure \ref{Fig3} reports the maximum flow depth, $H$, and Figure \ref{Fig4} the
 \caption{Maximum kinetic energy $K$ as a function of time in (a-b) MC, (c-d) PF, (e-f) VS model. (a-c-e) are the 5$^{th}$ and (b-d-f) are the 95$^{th}$ percentile values with respect to $P^j$. Colors are related to the energy in logarithmic scale. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#3,\#4,\#5 are displayed.}
 \label{Fig4}
 \end{figure}
+The kinetic energy, $K$, in a traditional sense may be calculated over an arbitrary region $R$ as:
+$$\textrm{Kin}(R)=\rho\int_R \kappa(x,y) dx dy=\rho\int_R \frac{1}{2} h(x,y)\left[\bar{u}(x,y)^2+\bar{v}(x,y)^2\right] dx dy,$$
+where $\rho$ is the density of the flow, typically in $[1000,\ 2000]\ kg/m^3$, depending on the flow water content.
+
+Figure \ref{Fig3} reports the maximum flow depth, $H$, and Figure \ref{Fig4} the maximum kinetic energy, $K$. MC shows the lowest values of both flow depth and energy, while VS the highest, especially in the distal part of the domain. In MC, the flow in the tributaries is not capable of reaching the village, while in the 95$^{th}$ percentile maps of PF and VS, it is. In VS, the flow in Arroyo Pl\'atanos joins the main ravine even in the 5$^{th}$ percentile map. In general, local maxima of flow depth are located in the ravine, while the kinetic energy shows a more regular decrease. The energy values at the head of the flow are in $[1,\ 10]\  m^3/s^2$, meaning a relatively slow flow compared to the dynamics observed upstream. Significant over-spill issues are absent, but in the 95$^{th}$ percentile maps all the models report some flow in the Dos Volcanes ravine, of about $[1,\ 5]\ m$ maximum height, and slightly less in PF.
 
 \subsection{Local properties of the flow}
 We further analyze the flow properties at the three sites selected above, and located in the distal part of the flow (Sites \#3,\#4, \#5), with very different results. All the quantities reported are estimated on the element of the grid which contains the coordinates of the site. We remark that the grid is adaptive, and hence the values can be affected by the size and position of the element. However, the integration over the input space significantly reduces this effect \citep{Patra2018}.
@@ -288,23 +260,24 @@ We further analyze the flow properties at the three sites selected above, and lo
 Along with the locally analyzed flow height and speed, we calculate the local \emph{contributing variables} in the modeling equations, that is, the \emph{dominance factors} and the \emph{expected contributions} related to the force terms in the conservation laws that characterize the models. In particular, $\forall n=1,\dots,N$ the dominance factor, $p_n$, is the probability that the related force term, $F_n$, is largest. The no-flow probability, $p_0$, is also included, and $\sum_{n=0}^N p_n = 1$. In contrast, $\forall n$ the expected contribution $E^{P_j}\left[C_n\right]$ is the mean of the force term, $F_n$, divided by the greatest (dominant) term. It belongs to $[0,1]$ and represents the degree of relevance of the $n^{th}$ term with respect to the dominant one. Contributing variables and their statistics are introduced in \cite{Patra2018} and detailed in Appendix \ref{A-2}.
 
 The higher dimensionality of $\Omega^{\textrm{PF}}$ requires additional testing. In particular, flow height and speed are  estimated on the hyperplane $\beta=0.5,$ $\phi_2=15^\circ$, and the probability distributions are not remarkably different. Additional plots concerning sites \#1 and \#2 are included in SI4-SI5.
+
+Figure \ref{Fig5} shows the local properties at site \#3, located $\sim$2 km upstream from Atenquique village. In MC, the flow reaches the site in $[600,\ 900]$ s, with a flow height of initially $[5,\ 7]$ m, and $[3,\ 5]$ m at $t_f=2400$ s. Flow speed is initially in $[1.5,\ 4.5]\ m/s$, and  one-third of these values are at $t_f$. Only the basal friction can be dominant, with gravitational force being 40\% of it, and internal friction 25\%, on average. In PF the flow reaches the site at $[300,\ 1000]$ s, with an initial flow height of  $[4,\ 8]$ m, having a short-lasting peak of $10$ m in the 95$^{th}$ percentile, and $[3,\ 5]$ m at $t_f$. Flow speed is initially in $[4,\ 6]\ m/s$, and has a short peak of almost $14\ m/s$ in the 95$^{th}$ percentile. It becomes $[2.0,\ 2.5]\ m/s$ at $t_f$. Either basal friction, gravity, or pressure force (related to the gradient of thickness) can be dominant. Gravitational force adds 80\% of the expected contribution, while basal friction 70\% and pressure force 45\%. In VS, the flow first reaches the site in $[300,\ 800]$ s, with a flow height of $[1.5,\ 12]$ m, initially, and a short peak at $14$ m, becoming $[1.5,\ 5]$ at $t_f$. Flow speed is in $[1,\ 15]\ m/s$, initially, has a short peak at $20\ m/s$, and then becomes $[1.5,\ 3.5]\ m/s$ at $t_f$. Either basal friction or gravity can be dominant, both with 75\% expected contribution. We note that gravity tends to slightly decrease in expected contribution, as well as its dominance factor, through time. This is a numerical effect related to the variation of the mesh, which changes our approximation of local slope.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.97\textwidth]{Fig5.png}
 \caption{Local flow properties in Site \#3, $\sim$2 km upstream from Atenquique village. (a,e,i) show flow height, (b,f,j) flow speed, (c,g,k) dominance factors, (d,h,l) expected contributions of the force terms. Different models are plotted separately: (a-d) assume MC; (e-h) assume PF, and (e,f) include estimates on a hyperplanar restriction of the input domain; (i-l) assume VS. In (a,b,e,f,i,j) colored line is mean value, black/gray lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds.}
 \label{Fig5}
 \end{figure}
-Figure \ref{Fig5} shows the local properties at site \#3, located $\sim$2 km upstream from Atenquique village. In MC, the flow reaches the site in $[600,\ 900]$ s, with a flow height of initially $[5,\ 7]$ m, and $[3,\ 5]$ m at $t_f=2400$ s. Flow speed is initially in $[1.5,\ 4.5]\ m/s$, and  one-third of these values are at $t_f$. Only the basal friction can be dominant, with gravitational force being 40\% of it, and internal friction 25\%, on average. In PF the flow reaches the site at $[300,\ 1000]$ s, with an initial flow height of  $[4,\ 8]$ m, having a short-lasting peak of $10$ m in the 95$^{th}$ percentile, and $[3,\ 5]$ m at $t_f$. Flow speed is initially in $[4,\ 6]\ m/s$, and has a short peak of almost $14\ m/s$ in the 95$^{th}$ percentile. It becomes $[2.0,\ 2.5]\ m/s$ at $t_f$. Either basal friction, gravity, or pressure force (related to the gradient of thickness) can be dominant. Gravitational force adds 80\% of the expected contribution, while basal friction 70\% and pressure force 45\%. In VS, the flow first reaches the site in $[300,\ 800]$ s, with a flow height of $[1.5,\ 12]$ m, initially, and a short peak at $14$ m, becoming $[1.5,\ 5]$ at $t_f$. Flow speed is in $[1,\ 15]\ m/s$, initially, has a short peak at $20\ m/s$, and then becomes $[1.5,\ 3.5]\ m/s$ at $t_f$. Either basal friction or gravity can be dominant, both with 75\% expected contribution. We note that gravity tends to slightly decrease in expected contribution, as well as its dominance factor, through time. This is a numerical effect related to the variation of the mesh, which changes our approximation of local slope.
+In summary, MC is characterized by a lower speed, and by the dominance of basal friction. The expected contribution of the internal friction is not negligible, meaning the internal shear of the material is important. In PF, the pressure force contribution is significant, and it can even be the dominant force initially. This is related to the steepening of the flow front. An initial short lasting wave of high speed is observed in either PF or VS, as is particularly evident in the upper bound of the plots. This fast wave is related to the closest source, \#3. The uncertainty affecting height and speed is generally higher in VS than in PF, in spite of the higher dimensionality of the second.
+
+Figure \ref{Fig6} shows the local properties at site \#4, located immediately upstream from Atenquique village, and close to the supports of the new bridge of the freeway to the city of Colima. In MC, the flow reaches the site in $[1300,\ 2100]$ s, with a flow height of $[2,\ 5.5]$ m. Flow speed is $<0.6\ m/s$, and $0.1\ m/s$, on average. Only basal friction is dominant, with the gravitational force being 30\% of basal friction, and internal friction 10\%, on average. In PF, the flow reaches the site at $[600,\ 1800]$ s, with a flow height of $[3,\ 6]$ m, which is stable in time. Flow speed is initially in $[1,\ 4]\ m/s$ and half of these values are at $t_f$. Either basal friction or gravity can be dominant. Gravitational force can be 95\% of the expected contribution, while basal friction is 65\%, and the pressure force, 25\%. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.97\textwidth]{Fig6.png}
 \caption{Local flow properties in Site \#4, immediately before Atenquique village. (a,e,i) show flow height, (b,f,j) flow speed, (c,g,k) dominance factors, (d,h,l) expected contributions of the force terms. Different models are plotted separately: (a-d) assume MC; (e-h) assume PF, and (e,f) include estimates on a hyperplanar restriction of the input domain; (i-l) assume VS. In (a,b,e,f,i,j) colored line is mean value, black/gray lines are 5$^{\mathrm{th}}$ and 95$^{\mathrm{th}}$ percentile bounds.}
 \label{Fig6}
 \end{figure}
-
-In summary, MC is characterized by a lower speed, and by the dominance of basal friction. The expected contribution of the internal friction is not negligible, meaning the internal shear of the material is important. In PF, the pressure force contribution is significant, and it can even be the dominant force initially. This is related to the steepening of the flow front. An initial short lasting wave of high speed is observed in either PF or VS, as is particularly evident in the upper bound of the plots. This fast wave is related to the closest source, \#3. The uncertainty affecting height and speed is generally higher in VS than in PF, in spite of the higher dimensionality of the second.
-
-Figure \ref{Fig6} shows the local properties at site \#4, located immediately upstream from Atenquique village, and close to the supports of the new bridge of the freeway to the city of Colima. In MC, the flow reaches the site in $[1300,\ 2100]$ s, with a flow height of $[2,\ 5.5]$ m. Flow speed is $<0.6\ m/s$, and $0.1\ m/s$, on average. Only basal friction is dominant, with the gravitational force being 30\% of basal friction, and internal friction 10\%, on average. In PF, the flow reaches the site at $[600,\ 1800]$ s, with a flow height of $[3,\ 6]$ m, which is stable in time. Flow speed is initially in $[1,\ 4]\ m/s$ and half of these values are at $t_f$. Either basal friction or gravity can be dominant. Gravitational force can be 95\% of the expected contribution, while basal friction is 65\%, and the pressure force, 25\%. In VS, the flow reaches the site in $[250,\ 550]$ s, with a first wave of $<3$ m. A second wave of $[1.5,\ 8]$ m arrives, and stays stable in depth. Flow speed also shows two waves - it is $<19\ m/s$, initially, then rises to $<12\ m/s$, with a gap in the middle. It is $[1,\ 3]\ m/s$ at $t_f$. Either gravity or basal friction can be dominant, with 95\% and 80\% of the expected contribution, respectively. In the initial fast wave, the speed dependent friction can be dominant, with 25\% of the expected contribution.
+In VS, the flow reaches the site in $[250,\ 550]$ s, with a first wave of $<3$ m. A second wave of $[1.5,\ 8]$ m arrives, and stays stable in depth. Flow speed also shows two waves - it is $<19\ m/s$, initially, then rises to $<12\ m/s$, with a gap in the middle. It is $[1,\ 3]\ m/s$ at $t_f$. Either gravity or basal friction can be dominant, with 95\% and 80\% of the expected contribution, respectively. In the initial fast wave, the speed dependent friction can be dominant, with 25\% of the expected contribution.
 
 In summary, all the models show lower flow height and speed than at the previous site upstream. The flow depth is stable, without decreasing downstream, meaning no formation of a significant deposit. MC is much slower than the other models, and its dynamics is completely dominated by basal friction. An initial, short-lasting wave of high speed is observed in VS. This fast wave is related to source \#5 in Arroyo Plat\'anos.
 \begin{figure}[H]
@@ -328,24 +301,28 @@ In Figure \ref{Fig9}:
 \begin{itemize}
 \item\textbf{Site \#3} Flow speed pdf at $t_f$ is above $0.25$ over: $[0.1,\ 1.4]$ m/s in MC, $[1.6,\ 2.4]$ m/s in PF and $[1.4,\ 2.8]$  m/s in VS. MC is bimodal at $0.5$ m/s and $1$ m/s, while PF has a modal value at $2.1$ m/s. The maximum speed pdf is above $0.05$ over: $[1,\ 7]$ m/s in MC, $[4,\ 8]$ m in PF, $[4,\ 16]$ in VS. PF and VS have tails up to $25$--$30$ m/s.
 \item\textbf{Site \#4} Flow speed pdf at $t_f$ is above $0.25$ over: $[0.00,\ 0.45]$ m/s in MC, $[0.6,\ 1.8]$ m/s in PF and $[0.5,\ 3.0]$  m/s in VS. PF has a modal value at $1$ m/s. Maximum speed pdf in MC is concentrated below $1$ m/s. In PF, it is above $0.25$ over $[1,\ 5]$ m/s. In VS, it is bimodal and above $0.25$ over: $[2,\ 6]$ m/s and $[12, 20]$ m/s.
-\item\textbf{Site \#5} Flow speed pdf at $t_f$ is above $0.25$ over: $[0.0,\ 0.4]$ m/s in MC, $[0.0,\ 1.4]$ m/s in PF and over $[0.0,\ 0.2]$ and $[0.4,\ 2.2]$  m/s in VS. The maximum speed pdf is above $0.05$ over: $[0.0,\ 0.2]$ and $[0.4,\ 1.2]$ m/s in MC, to $[0,\ 4]$ m in PF, $[0,\ 9]$ in VS. PF and VS have tails up to $8$ and $13$ m/s, respectively.
 \end{itemize}
 
-\subsection{Alternative performance scores of the models}
-In  Figures \ref{Fig8} and \ref{Fig9}, we display the empirical data concerning the observed quantities. These intervals are examples of uncertain data to test our methodology. Further research could refine/modify them.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{Fig8.png}
+\includegraphics[width=0.76\textwidth]{Fig8.png}
 \caption{Histograms of local flow height in Sites \#3,\#4, \#5. (a,c,e) show height at $t=2400$ s, (b,d,f) maximum height. Different models are displayed with different colors. Dots on the height axis show the uncertainty interval of data - green is the deposit thickness of \cite{Saucedo2008} and unpublished data, violet is the wave height documented by the survivors.}
 \label{Fig8}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{Fig9.png}
+\includegraphics[width=0.76\textwidth]{Fig9.png}
 \caption{Histograms of local flow speed in Sites \#3,\#4, \#5. (a,c,e) show speed at $t=2400$ s, (b,d,f) maximum speed. Different models are displayed with different colors. Cyan dots on the speed axis show the uncertainty interval of estimated speed \cite{Pierson1985}.}
 \label{Fig9}
 \end{figure}
+
+\begin{itemize}
+\item\textbf{Site \#5} Flow speed pdf at $t_f$ is above $0.25$ over: $[0.0,\ 0.4]$ m/s in MC, $[0.0,\ 1.4]$ m/s in PF and over $[0.0,\ 0.2]$ and $[0.4,\ 2.2]$  m/s in VS. The maximum speed pdf is above $0.05$ over: $[0.0,\ 0.2]$ and $[0.4,\ 1.2]$ m/s in MC, to $[0,\ 4]$ m in PF, $[0,\ 9]$ in VS. PF and VS have tails up to $8$ and $13$ m/s, respectively.
+\end{itemize}
+
+\subsection{Alternative performance scores of the models}
+In  Figures \ref{Fig8} and \ref{Fig9}, we display the empirical data concerning the observed quantities. These intervals are examples of uncertain data to test our methodology. Further research could refine/modify them.
 
 \begin{figure}[H]
 \centering
@@ -361,26 +338,7 @@ In  Figures \ref{Fig8} and \ref{Fig9}, we display the empirical data concerning 
 The estimation of the likelihood of the pieces of observed data is an essential step towards the definition of partial solutions of the inverse problem. Besides this, it is also relevant information in the model selection problem. The likelihood of a data piece, $D_i$, attaining its value given a certain model is defined as $P^j(D_i)$, $\forall i\in I$, $\forall M_j\in \mathcal M$. We remark that this is not a pdf value, but the probability of a measurable set. Figure \ref{Fig10} shows the barplots of data likelihood. Figure \ref{Fig10}a considers deposit thickness values, under the assumption that they are equivalent to the flow height at $t_f$. At Site \#3, 70\% of MC inputs provide flow thickness consistent with the deposit range, against 35\% of PF and 20\% of VS inputs. At Site \#4, likelihood scores are lower: 20\% in MC, 10\% in VS, $<$5\% in PF. At Site \#5, instead, we have: 15\% in MC, 25\% in PF, 45\% in VS. Figure \ref{Fig10}b evaluates the maximum flow height when the flow entered Atenquique village. In Site \#3, 20\% of inputs in PF and VS provide results consistent with data, while only $<$5\% do so in MC. At Site \#4, the likelihood score of VS is 27\%, while it is null in the other models. Figure \ref{Fig10}c focuses on the maximum flow speed after the flow inundated the village. At Site \#4, 8\% of inputs in PF and 9\% in VS provide speeds in the most likely range. At Site \#5, these are only 1\% in PF, and 17\% in VS.
 
 In summary, model performance is dependent on the selected quantity of interest, and on the spatial location. Regarding the deposits, MC performs well at  Site \#3, while VS does so at Site \#5.  In the evaluation of the maximum flow depth in the village, both PF and VS can replicate the values at Site \#3, and only VS can replicate the values at Site \#4. If we focus on the maximum flow speed, at Site \#4 both PF and VS perform moderately well, while at Site \#5, only VS can provide speed values inside the assumed range.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.82\textwidth]{Fig11_0.png}
-\caption{Example \#1 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5, blue in Site \#4, red in Site \#3 \citep{Saucedo2008}.}
-\label{Fig11_0}
-\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.82\textwidth]{Fig11.png}
-\caption{Example \#2 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#4 \citep{PonceSegura1983}, red is flow speed in Site \#5 \citep{Pierson1985}.}
-\label{Fig11}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.82\textwidth]{Fig11_PF.png}
-\caption{Example \#3 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#3 \citep{PonceSegura1983}, red is flow speed in Site \#4 \citep{Pierson1985}.}
-\label{Fig11a}
-\end{figure}
 \section{Partial solutions in the input space}
 Figures \ref{Fig11_0}, \ref{Fig11}, \ref{Fig11a} display three examples of partial solutions in the specialized experimental design.
 For each example $n=1,2,3$ we select a subfamily of empirical data $(D_i)_{i\in I_n}$ and define, $\forall j$:
@@ -390,7 +348,30 @@ For each example $n=1,2,3$ we select a subfamily of empirical data $(D_i)_{i\in 
 Example \#1 focuses on the deposit thickness data at Sites \#3, \#4, \#5.  Examples \#2 and \#3 consider the deposit thickness at Site \#5 only. Additionally, Example \#2 evaluates the maximum flow height at Site \#4, and the maximum flow speed at Site \#5, while Example \#3 does that at Site \#3 and Site \#4, respectively.
 
 Figure \ref{Fig11_0} concerns Example \#1. In all the models, $\tilde\Theta_1^j=\emptyset$. In MC, the set of inputs that replicate the deposit thickness at Site \#4 are disjoint from those in Site \#5. Instead, in PF and VS the inputs related to Site \#3 are disjoint from those related to Site \#4. Figure \ref{Fig11} concerns Example \#2. In MC and PF, the  maximum flow height from the data is never reproduced. In MC, the required maximum flow speed is never achieved. Thus, $\tilde\Theta_2^j\neq\emptyset$ only if $j=\textrm{VS}$. The partial solution inputs in $\tilde\Theta_2^{\textrm{VS}}$ are bounded by:
-$$\arctan(\mu) \in [1.0,\ 1.8],\quad \xi\in[3.1, 3.7],\quad V \in [3.8,\ 5.0] \times 10^6\ m^3.$$ Figure \ref{Fig11a} is related to Example \#3. In MC, the required maximum flow speed from the data is never reproduced. We have that $\tilde\Theta_2^j\neq\emptyset$ for $j\in\{\textrm{PF}, \textrm{VS}\}$. In PF, the partial solution inputs in $\tilde\Theta_3^{\textrm{PF}}$ are bounded by:
+$$\arctan(\mu) \in [1.0,\ 1.8],\quad \xi\in[3.1, 3.7],\quad V \in [3.8,\ 5.0] \times 10^6\ m^3.$$ 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.73\textwidth]{Fig11_0.png}
+\caption{Example \#1 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5, blue in Site \#4, red in Site \#3 \citep{Saucedo2008}.}
+\label{Fig11_0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.73\textwidth]{Fig11.png}
+\caption{Example \#2 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#4 \citep{PonceSegura1983}, red is flow speed in Site \#5 \citep{Pierson1985}.}
+\label{Fig11}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.73\textwidth]{Fig11_PF.png}
+\caption{Example \#3 of partial solution inputs in (a-b) MC, (c-d) PF, (e-f) VS experimental design. (a-c-e) are projected along the $V$ coordinate, and (b-d-f) along $\phi_{int}$, $\phi_2$ and $\xi$ coordinates, respectively. The color expresses the considered data: yellow is deposit thickness in Site \#5 \citep{Saucedo2008}, blue is wave height in Site \#3 \citep{PonceSegura1983}, red is flow speed in Site \#4 \citep{Pierson1985}.}
+\label{Fig11a}
+\end{figure}
+
+Figure \ref{Fig11a} is related to Example \#3. In MC, the required maximum flow speed from the data is never reproduced. We have that $\tilde\Theta_2^j\neq\emptyset$ for $j\in\{\textrm{PF}, \textrm{VS}\}$. In PF, the partial solution inputs in $\tilde\Theta_3^{\textrm{PF}}$ are bounded by:
 $$\phi_1 \in [1.0,\ 1.6],\quad L \in [0.12,\ 0.25]\ m,\quad V \in [3.9,\ 4.9] \times 10^6\ m^3.$$
 In VS, only one point belongs to the partial solution input set, with $\arctan(\mu) \simeq 1.2$, $\xi \simeq 3.1$, $V \simeq 3.6 \times 10^6$ $m^3$. Remarkably, the input spaces reproducing the three required pieces of empirical data are almost disjoint in pairs, and $\tilde\Theta_3^{\textrm{VS}}$ is small and close to the frontiers of the uncertainty ranges. Additional details in PF over the hyperplane $\{\beta=0.5,\ \phi_2=15\}$ described in Table 1 are included in Supporting Information SI6.
 
@@ -414,22 +395,23 @@ $$K\in[40,\ 140]\ m^3/s^2,\quad \kappa_f\in[0,\ 9]\ m^3/s^2,\quad Q\in[7.5,\ 17.
 The modal values of $K$ are $\sim 225\ m^3/s^2$ and $60\ m^3/s^2$, respectively.
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{Fig12.png}
+\includegraphics[width=0.95\textwidth]{Fig12.png}
 \caption{Flow properties of VS model, over the input space $\tilde\Theta_2^{\textrm{VS}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\tilde\Theta_2^{\textrm{VS}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#4 and \#5 are displayed.}
 \label{Fig12}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Fig12_PF.png}
+\caption{Flow properties of PF model, over the input space $\tilde\Theta_3^{\textrm{PF}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\tilde\Theta_3^{\textrm{PF}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#4 and \#5 are displayed.}
+\label{Fig12a}
+\end{figure}
+
 In Figure \ref{Fig12a}, at Site \#4:
 $$K\in[35,\ 75]\ m^3/s^2,\quad \kappa_f\in[3,\ 8]\ m^3/s^2,\quad Q\in[8,\ 13]\ m^2/s^2$$
 and at Site \#5:
 $$K\in[18,\ 34]\ m^3/s^2,\quad \kappa_f\in[1,\ 7]\ m^3/s^2,\quad Q\in[4,\ 7]\ m^2/s^2$$
 Modal values are not well-constrained in this case.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{Fig12_PF.png}
-\caption{Flow properties of PF model, over the input space $\tilde\Theta_3^{\textrm{PF}}$. Histograms of (a,b) local kinetic energy and (c) dynamic pressure in Sites \#4 and \#5, (a) at $t=2400$ s, (b,c) maximum value. Different sites are displayed with different colors. Mean values over $\tilde\Theta_3^{\textrm{PF}}$ of the maps of maximum (d) kinetic energy and (e) flow height as a function of time. Colors are related to their values. Elevation contours are included at intervals of 100 m (gray) and 500 m (black) \citep{NASA2014}. Sites \#4 and \#5 are displayed.}
-\label{Fig12a}
-\end{figure}
 
 In the spatial maps, PF shows slightly lower maximum flow height, and significantly lower energy than VS, especially in the distal part of the domain. The flow in the tributaries can reach the village, except for the smallest flows of Arroyo Pl\'atanos in PF, which however at $t_f$ are only tens of meters from the main branch. As in the unconditional maps, local maxima of flow height are located in the ravine, while the kinetic energy shows a more regular decrease.
 
@@ -444,28 +426,26 @@ In particular, models using MC based rheologies are unlikely to reproduce the pr
 We remark that the assumed $[4,\ 6]\ m/s$ constraint on the maximum flow speed has an immediate effect on the dynamic pressure estimates. Imposing it at Site \#5 as in the Example \#2, or Site \#4 as in the Example \#3, can radically change the results, even if the required deposit thickness at Site \#5 is not modified. Additional information on the speed properties in the village could thus allow us to further discriminate the performance of the models.
 
 
-\section{Conclusions}
-In this study, we have introduced a new prediction-oriented method for hazard assessment of volcaniclastic debris flows (lahars), based on multiple geophysical mass flow models. In particular, our approach  decomposes the original inverse problem into a hierarchy of simpler problems, and allows for the exploration of the impact of synthetic flows that are similar to those that occurred in the past, but different in plausible ways.
+\conclusions
+In this study, we have introduced a new prediction-oriented method for hazard assessment of volcaniclastic debris flows (lahars), based on multiple geophysical mass flow models. Similar strategies have been applied in hurricane hazard analysis \citep{Krishna2016, Ghosh2018}. In particular, our approach  decomposes the original inverse problem into a hierarchy of simpler problems, and allows for the exploration of the impact of synthetic flows that are similar to those that occurred in the past, but different in plausible ways.
 
-We applied our procedure to a case study of the 1955 Atenquique volcaniclastic debris flow. We adopted and compared three depth averaged models based on the Saint-Venant equations that are widely used in hazard assessment. In summary:
+We applied our procedure to a case study of the 1955 Atenquique volcaniclastic debris flow. We adopted and compared three depth averaged models based on the Saint-Venant equations that are widely used in hazard assessment. Namely, Mohr-Coulomb (MC), Pouliquen-Forterre (PF), and Voellmy-Salm (VS). In summary:
 \begin{itemize}
-  \item We defined a \emph{specialized experimental design} after assuming: the existence of the numerical output, the realism of the underlying physics, the numerical simulation is robust in some sense, and the flow dynamics or inundation output is in some way meaningful. This produced a wide range of output simulations that contain valuable information for hazard assessment.
-\end{itemize}
-Indeed, these outputs do not strictly reconstruct past flows, hence can provide hazard estimates under constraints weaker than those used herein, potentially including  cases of extreme events. Moreover, our designs were not trivial geometrically, due to the correlated effects of model inputs. This is a first step towards the development of an objective and partially automated experimental design construction.
-\begin{itemize}
-  \item We statistically described the characteristics of the outputs and contributing variables by performing a Monte Carlo simulation over the specialized design. We made global maps of the flows, and investigated detailed characteristics. This allowed us to calculate the likelihood that different model realizations reasonably represented the 1955 Atenquique flow, given multiple pieces of field data regarding its characteristics.  Depending on how it is looked at, the exercise provided useful information in either model selection or data inversion.
-\end{itemize}
-Our analysis concerned the mean values and uncertainty percentiles of certain quantities of interest. Moreover, the probabilistic setting allowed us to make inferences regarding the uncertainty affecting the data. We analyzed the contributing variables, which shed light on the different assumptions underlying the models. In particular, MC is generally characterized by a lower speed over its feasible input space, when compared to the other models. The expected contribution of the internal friction is not negligible, meaning the internal shear of the material is important. In PF, the pressure force contribution related to the steepening of the flow front was locally significant, and was sometimes even the dominant force. An initial, short-lasting wave of high speed related to the closest of the multiple sources was observed in both PF and VS. The uncertainty in height and speed was generally higher in VS than in PF, in spite of the higher dimensionality of the second.
+  \item We defined a \emph{specialized experimental design} after assuming: the realism of the underlying physics, the numerical simulation is robust in some sense, and the flow dynamics or inundation output is meaningful. This produced a range of output simulations that contain valuable information for hazard assessment.
 
-\begin{itemize}
-  \item We constructed partial solutions to the inverse problem, conditioning the specialized experimental design to be consistent with three example subsets of observed data. We  described the corresponding inputs sets, and investigated their intersection. We found model selection to be inherently linked to the inversion problem. That is, the partial inverse problems enabled us to select models depending on the example characteristics and spatial location.
-\end{itemize}
-In particular, when attempting to correctly represent the deposits, MC performed well about 2 km upstream from the village, while VS did so in the village. In the evaluation of the maximum flow or run-up depth, both PF and VS replicated the values 2 km upstream from Atenquique, but only VS replicated the values in the village. In terms of maximum flow speed, both PF and VS performed moderately well in the village, but only VS performed well 1 km downstream.  These results are consistent with evolution of flow rheology downstream in the vicinity of the village, from MC above the village, to either PF or VS within and downstream from the village.  If VS was dominant as the flow propagated downstream, the meaning here may reflect an evolution from inertial to macroviscous debris flow behavior near Atenquique, perhaps related to engulfment of the reservoir just upstream from the village.
+      Indeed, these outputs do not strictly reconstruct past flows, hence can provide hazard estimates under constraints weaker than those used therein, potentially including  cases of extreme events. Moreover, our designs were not trivial geometrically, due to the correlated effects of model inputs. This is a first step towards the development of an objective and partially automated experimental design.
 
+  \item We described the statistics of the outputs and contributing variables by performing a Monte Carlo simulation over the specialized design. We made global maps of the flows, and investigated detailed characteristics. This allowed us to calculate the likelihood that different model realizations reasonably represented the 1955 Atenquique flow, given multiple pieces of field data regarding its characteristics.  Depending on how it is looked at, the exercise provided useful information in either model selection or data inversion.
+
+      Our analysis concerned the mean values and uncertainty percentiles of quantities of interest. Moreover, the probabilistic setting allowed us to make inferences regarding the uncertainty affecting the data. We analyzed the contributing variables, which shed light on the different assumptions underlying the three considered models. In particular, the MC model is generally characterized by a lower speed over its feasible input space, when compared to the other models. The expected contribution of the internal friction is significant, meaning the internal shear of the material is important. In the PF model, the pressure force contribution related to the steepening of the flow front was locally significant, and was sometimes even the dominant force. An initial, short-lasting wave of high speed related to the closest of the multiple sources was observed in both PF and VS. The uncertainty in height and speed was generally higher in VS than in PF, in spite of the higher dimensionality of the second.
+
+  \item We constructed partial solutions to the inverse problem, conditioning the specialized experimental design to be consistent with subsets of the observed data. We  described the corresponding inputs sets, and investigated their intersection. We found model selection to be inherently linked to the inversion problem. That is, the partial inverse problems enabled us to select models depending on the example characteristics and spatial location.
+
+      In particular, when attempting to correctly represent the deposits, MC performed well about 2 km upstream from the village, while VS did so in the village. In the evaluation of the maximum flow or run-up depth, both PF and VS replicated the values 2 km upstream from Atenquique, but only VS replicated the values in the village. In terms of maximum flow speed, both PF and VS performed moderately well in the village, but only VS performed well 1 km downstream.  These results are consistent with evolution of flow rheology downstream in the vicinity of the village, from MC above the village, to either PF or VS within and downstream from the village.  If VS was dominant as the flow propagated downstream, the meaning here may reflect an evolution from inertial to macroviscous debris flow behavior near Atenquique, perhaps related to engulfment of the reservoir just upstream from the village.
+\end{itemize}
 The connection of inverse problems and model uncertainty represents a fundamental challenge in the future development of multi-model solvers, suggesting as it does the advantages of dynamically selecting the model based on performance against local data for previous, example flows and their deposits.
 
-\section*{Acknowledgements}
-We would like to acknowledge the support of NSF awards 1339765, 1521855, 1621853 and 1821311. We would like to thank Byron Rupp for his fundamental work on the localization and volume constraints of the Atenquique debris flow \citep{Rupp2004}, and Ali Akhavan Safaei for the C++ and Python scripts to collect the local outputs and contributing variables on the grid elements \citep{Ali2018}.
+\codedataavailability{Datasets are available from references and Supporting Information. The $\mathrm{4^{\mathrm{th}}}$ release of TITAN2D is available from vhub.org.}
 
 \appendix
 \section{Overview of the depth-averaged models}\label{A-1}
@@ -584,16 +564,15 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 \section{Contributing variables}\label{A-2}
 Let $\left[F_n(\underline{\textbf x},t)\right]_{n=1,\dots, N}$ be an array of force terms, where $\underline{\textbf x}\in \mathbf R^d$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms to the flow dynamics can be significantly variable in space and time, and we define the \emph{dominance factors} $[p_n(\underline{\textbf x},t)]_{n=1,\dots, N}$, i.e., the probability of each $F_n(\underline{\textbf x},t)$ to be the dominant force. Those probabilities provide insight into the dominance of a particular source or dissipation term on the model dynamics. We remark that we focus on the modulus of the forces and hence we cope with scalar terms. It is also important to remark that all the forces depend on the input variables, and they can be thus considered as random variables. Furthermore, these definitions are general and could be applied to any set of contributing variables, and not only to the force terms. More details about this can be found in \cite{Patra2018}.
 
-\begin{definition}[Dominance factors]
+\paragraph{Definition 1 (Dominance factors)}
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P_M)$. Then, $\forall i$, the dominant variable is defined as:
 $$\Phi:=\max_i |F_i|.$$
 In particular, for each $j \in I$, the dominance factors are defined as:
 $$p_j:=P_M\left\{\Phi=|F_j|\right\}.$$
-\end{definition}
 
 Moreover, we define the \emph{random contributions}, an additional tool that we use to compare the different force terms, following a less restrictive approach than the dominance factors. They are obtained dividing the force terms by the dominant force $\Phi$, and hence belong to $[0,1]$.
 
-\begin{definition}[Expected contributions]
+\paragraph{Definition 2 (Expected contributions)}
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P_M)$. Then, $\forall i$, the random contribution is defined as:
 $$C_i:=\left\{
 \begin{array}{ll}
@@ -602,9 +581,18 @@ $$C_i:=\left\{
     \end{array}
   \right.$$
 where $\Phi$ is the dominant variable. Thus, $\forall i$, the expected contributions are defined by $E\left[C_i\right]$.
-\end{definition}
 
 In particular, for a particular location $x$, time $t$, and parameter sample $\omega$, we have $C_n(\underline{\textbf x},t,\omega)=0$ if there is no flow or all the forces are null. The expectation of $C_n$ is reduced by the chance of $F_n$ being small compared to the other terms, or by the chance of having no flow in $(\underline{\textbf x},t)$.
+
+\noappendix
+
+\authorcontribution{AB and AP conceived the main conceptual ideas. AB implemented and performed the simulations and the statistical analysis. AB wrote the manuscript. AB, AP and MIB interpreted the computational results. All authors discussed the results, commented on the manuscript, provided critical feedback, and gave final approval for publication.}
+
+\competinginterests{The authors declare that they have no conflict of interest.}
+
+\begin{acknowledgements}
+We would like to acknowledge the support of NSF awards 1339765, 1521855, 1621853 and 1821311. We would like to thank Byron Rupp for his fundamental work on the localization and volume constraints of the Atenquique debris flow \citep{Rupp2004}, and Ali Akhavan Safaei for the C++ and Python scripts to collect the local outputs and contributing variables on the grid elements \citep{Ali2018}.
+\end{acknowledgements}
 
 \bibliographystyle{apalike}
 \bibliography{mybibfileMX}
