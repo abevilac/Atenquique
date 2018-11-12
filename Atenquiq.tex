@@ -234,7 +234,7 @@ In our depth-averaged approach the \emph{kinetic energy} \footnote{while the use
 \end{equation}
 where $h\bar{u}$ and $h\bar{v}$ are, respectively, the components of momentum in the $x$ and $y$ directions.
 
-This is equivalent to $\frac{1}{2} h ||(\bar{u},\bar{v})||^2$, that is half the flow height times the speed square. Thus $\kappa$ is formally the kinetic energy density per unit of surface area,  for a mass with unit density. 
+This is equivalent to $\frac{1}{2} h ||(\bar{u},\bar{v})||^2$, that is half the flow height times the speed square. Thus $\kappa$ is formally the kinetic energy density per unit of surface area,  for a mass with unit density.
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{Fig3.png}
@@ -270,7 +270,7 @@ Figure \ref{Fig5} shows the local properties at site \#3, located $\sim$2 km ups
 \end{figure}
 In summary, MC is characterized by a lower speed, and by the dominance of basal friction. The expected contribution of the internal friction is not negligible, meaning the internal shear of the material is important. In PF, the pressure force contribution is significant, and it can even be the dominant force initially. This is related to the steepening of the flow front. An initial short lasting wave of high speed is observed in either PF or VS, as is particularly evident in the upper bound of the plots. This fast wave is related to the closest source, \#3. The uncertainty affecting height and speed is generally higher in VS than in PF, in spite of the higher dimensionality of the second.
 
-Figure \ref{Fig6} shows the local properties at site \#4, located immediately upstream from Atenquique village, and close to the supports of the new bridge of the freeway to the city of Colima. In MC, the flow reaches the site in $[1300,\ 2100]$ s, with a flow height of $[2,\ 5.5]$ m. Flow speed is $<0.6\ m/s$, and $0.1\ m/s$, on average. Only basal friction is dominant, with the gravitational force being 30\% of basal friction, and internal friction 10\%, on average. In PF, the flow reaches the site at $[600,\ 1800]$ s, with a flow height of $[3,\ 6]$ m, which is stable in time. Flow speed is initially in $[1,\ 4]\ m/s$ and half of these values are at $t_f$. Either basal friction or gravity can be dominant. Gravitational force can be 95\% of the expected contribution, while basal friction is 65\%, and the pressure force, 25\%. 
+Figure \ref{Fig6} shows the local properties at site \#4, located immediately upstream from Atenquique village, and close to the supports of the new bridge of the freeway to the city of Colima. In MC, the flow reaches the site in $[1300,\ 2100]$ s, with a flow height of $[2,\ 5.5]$ m. Flow speed is $<0.6\ m/s$, and $0.1\ m/s$, on average. Only basal friction is dominant, with the gravitational force being 30\% of basal friction, and internal friction 10\%, on average. In PF, the flow reaches the site at $[600,\ 1800]$ s, with a flow height of $[3,\ 6]$ m, which is stable in time. Flow speed is initially in $[1,\ 4]\ m/s$ and half of these values are at $t_f$. Either basal friction or gravity can be dominant. Gravitational force can be 95\% of the expected contribution, while basal friction is 65\%, and the pressure force, 25\%.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.97\textwidth]{Fig6.png}
@@ -348,7 +348,7 @@ For each example $n=1,2,3$ we select a subfamily of empirical data $(D_i)_{i\in 
 Example \#1 focuses on the deposit thickness data at Sites \#3, \#4, \#5.  Examples \#2 and \#3 consider the deposit thickness at Site \#5 only. Additionally, Example \#2 evaluates the maximum flow height at Site \#4, and the maximum flow speed at Site \#5, while Example \#3 does that at Site \#3 and Site \#4, respectively.
 
 Figure \ref{Fig11_0} concerns Example \#1. In all the models, $\tilde\Theta_1^j=\emptyset$. In MC, the set of inputs that replicate the deposit thickness at Site \#4 are disjoint from those in Site \#5. Instead, in PF and VS the inputs related to Site \#3 are disjoint from those related to Site \#4. Figure \ref{Fig11} concerns Example \#2. In MC and PF, the  maximum flow height from the data is never reproduced. In MC, the required maximum flow speed is never achieved. Thus, $\tilde\Theta_2^j\neq\emptyset$ only if $j=\textrm{VS}$. The partial solution inputs in $\tilde\Theta_2^{\textrm{VS}}$ are bounded by:
-$$\arctan(\mu) \in [1.0,\ 1.8],\quad \xi\in[3.1, 3.7],\quad V \in [3.8,\ 5.0] \times 10^6\ m^3.$$ 
+$$\arctan(\mu) \in [1.0,\ 1.8],\quad \xi\in[3.1, 3.7],\quad V \in [3.8,\ 5.0] \times 10^6\ m^3.$$
 
 \begin{figure}[H]
 \centering
@@ -564,7 +564,7 @@ S_{y} &=& g_{y} h - \frac{\bar{v}}{\| \underset{^\sim}{\bar{\textbf u}}\|} \ \le
 \section{Contributing variables}\label{A-2}
 Let $\left[F_n(\underline{\textbf x},t)\right]_{n=1,\dots, N}$ be an array of force terms, where $\underline{\textbf x}\in \mathbf R^d$ is a spatial location, and $t\in T$ is a time instant. The degree of contribution of those force terms to the flow dynamics can be significantly variable in space and time, and we define the \emph{dominance factors} $[p_n(\underline{\textbf x},t)]_{n=1,\dots, N}$, i.e., the probability of each $F_n(\underline{\textbf x},t)$ to be the dominant force. Those probabilities provide insight into the dominance of a particular source or dissipation term on the model dynamics. We remark that we focus on the modulus of the forces and hence we cope with scalar terms. It is also important to remark that all the forces depend on the input variables, and they can be thus considered as random variables. Furthermore, these definitions are general and could be applied to any set of contributing variables, and not only to the force terms. More details about this can be found in \cite{Patra2018}.
 
-\paragraph{Definition 1 (Dominance factors)}
+\subsection{Dominance factors}
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P_M)$. Then, $\forall i$, the dominant variable is defined as:
 $$\Phi:=\max_i |F_i|.$$
 In particular, for each $j \in I$, the dominance factors are defined as:
@@ -572,7 +572,7 @@ $$p_j:=P_M\left\{\Phi=|F_j|\right\}.$$
 
 Moreover, we define the \emph{random contributions}, an additional tool that we use to compare the different force terms, following a less restrictive approach than the dominance factors. They are obtained dividing the force terms by the dominant force $\Phi$, and hence belong to $[0,1]$.
 
-\paragraph{Definition 2 (Expected contributions)}
+\subsection{Expected contributions}
 Let $(F_i)_{i\in I}$ be random variables on $(\Omega, \mathcal F, P_M)$. Then, $\forall i$, the random contribution is defined as:
 $$C_i:=\left\{
 \begin{array}{ll}
@@ -594,6 +594,6 @@ In particular, for a particular location $x$, time $t$, and parameter sample $\o
 We would like to acknowledge the support of NSF awards 1339765, 1521855, 1621853 and 1821311. We would like to thank Byron Rupp for his fundamental work on the localization and volume constraints of the Atenquique debris flow \citep{Rupp2004}, and Ali Akhavan Safaei for the C++ and Python scripts to collect the local outputs and contributing variables on the grid elements \citep{Ali2018}.
 \end{acknowledgements}
 
-\bibliographystyle{apalike}
+\bibliographystyle{copernicus}
 \bibliography{mybibfileMX}
 \end{document} 
